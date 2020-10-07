@@ -91,7 +91,7 @@ namespace UserRegistration
         }
         public void verifypassword()
         {
-            Regex regex = new Regex("^[A-Za-z]{8,}$");
+            Regex regex = new Regex("^.*[A-Z]+.*$");
             Console.Write("Enter Password-");
             string password = Console.ReadLine();
             Match match = regex.Match(password);
