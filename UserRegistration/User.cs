@@ -10,15 +10,18 @@ namespace UserRegistration
         public string firstname;
         public string lastname;
         public string email;
+        public string mobilenumber;
         public User()
         {
             this.firstname = "firstname";
             this.lastname = "lastname";
             this.email = "email";
+            this.mobilenumber = "mobilenumber";
         }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
+        public string MobileNumber { get; set; }
         public void verifyfirstName()
         {
             Regex regex = new Regex("^[A-Z][a-z]{2,}$");
@@ -65,6 +68,22 @@ namespace UserRegistration
             {
                 Console.WriteLine("Invalid Email Address");
                 verifyemail();
+            }
+        }
+        public void verifymobilenumber()
+        {
+            Regex regex = new Regex("^[6-9]{1}[1-9]{9}$");
+            Console.Write("Enter Mobile Number-");
+            string mobilenumber = Console.ReadLine();
+            Match match = regex.Match(mobilenumber);
+            if (regex.IsMatch(mobilenumber))
+            {
+                MobileNumber = mobilenumber;
+            }
+            else
+            {
+                Console.WriteLine("Invalid Mobile Number-");
+                verifymobilenumber();
             }
         }
     }
