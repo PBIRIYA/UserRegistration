@@ -104,6 +104,11 @@ namespace UserRegistration
             Regex regex = new Regex("^.*[0-9]+.*$");
             return (regex.IsMatch(password));
         }
+        private bool verifypassword4(string password)
+        {
+            Regex regex = new Regex("^[A-Za-z0-9] *[!@#$%&*_-][A-Za-z0-9]*$");
+            return (regex.IsMatch(password));
+        }
         public void verifypassword()
         {
             Console.Write("Enter Password-");
