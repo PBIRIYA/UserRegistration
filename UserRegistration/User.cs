@@ -89,23 +89,40 @@ namespace UserRegistration
                 verifymobilenumber();
             }
         }
-        public void verifypassword()
+        private bool verifypassword1(string password)
+        {
+            Regex regex = new Regex("^[A-Za-z0-9]{8,}$");
+            return (regex.IsMatch(password));
+        }
+        private bool verifypassword2(string password)
         {
             Regex regex = new Regex("^.*[A-Z]+.*$");
+            return (regex.IsMatch(password));
+        }
+        private bool verifypassword3(string password)
+        {
+            Regex regex = new Regex("^.*[0-9]+.*$");
+            return (regex.IsMatch(password));
+        }
+        public void verifypassword()
+        {
             Console.Write("Enter Password-");
             string password = Console.ReadLine();
-            Match match = regex.Match(password);
-            if (regex.IsMatch(password))
+            if (verifypassword1(password) && verifypassword2(password) && verifypassword3(password))
             {
                 Password = password;
             }
             else
             {
                 Console.WriteLine("Invalid Password-");
+                Console.WriteLine("Password needs to have \n" +
+                   "1. Minimum 8 characters\n" +
+                   "2. At least 1 upper case character\n" +
+                   "3. At least 1 numeric value");
                 verifypassword();
             }
         }
     }
-    }
+}
 
 
