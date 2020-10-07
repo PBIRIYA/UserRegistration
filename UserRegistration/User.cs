@@ -106,7 +106,7 @@ namespace UserRegistration
         }
         private bool verifypassword4(string password)
         {
-            Regex regex = new Regex("^[A-Za-z0-9] *[!@#$%&*_-][A-Za-z0-9]*$");
+            Regex regex = new Regex("^.*?[#?!@$%^&-*_]+.*$");
             return (regex.IsMatch(password));
         }
         public void verifypassword()
