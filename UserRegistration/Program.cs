@@ -8,7 +8,8 @@ namespace UserRegistration
             Console.WriteLine("welcoming Users for Registration !");
             User user = new User();
             user.verifyfirstName();
-            Console.WriteLine("First Name " + user.FirstName);
+            user.verifylastName();
+            Console.WriteLine("Name- " + user.FirstName + user.LastName);
         }
     }
 }
