@@ -14,6 +14,8 @@ namespace UserRegistration
             Console.WriteLine("Email Address-" + user.Email);
             user.verifymobilenumber();
             Console.WriteLine("Mobile Number-" + user.MobileNumber);
+            user.verifypassword();
+            Console.WriteLine("Password-" + user.Password);
         }
     }
 }

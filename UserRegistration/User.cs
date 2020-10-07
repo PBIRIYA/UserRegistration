@@ -11,17 +11,20 @@ namespace UserRegistration
         public string lastname;
         public string email;
         public string mobilenumber;
+        public string password;
         public User()
         {
             this.firstname = "firstname";
             this.lastname = "lastname";
             this.email = "email";
             this.mobilenumber = "mobilenumber";
+            this.password = "password";
         }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string MobileNumber { get; set; }
+        public string Password { get; set; }
         public void verifyfirstName()
         {
             Regex regex = new Regex("^[A-Z][a-z]{2,}$");
@@ -86,7 +89,23 @@ namespace UserRegistration
                 verifymobilenumber();
             }
         }
+        public void verifypassword()
+        {
+            Regex regex = new Regex("^[A-Za-z]{8,}$");
+            Console.Write("Enter Password-");
+            string password = Console.ReadLine();
+            Match match = regex.Match(password);
+            if (regex.IsMatch(password))
+            {
+                Password = password;
+            }
+            else
+            {
+                Console.WriteLine("Invalid Password-");
+                verifypassword();
+            }
+        }
     }
-}
+    }
 
 
