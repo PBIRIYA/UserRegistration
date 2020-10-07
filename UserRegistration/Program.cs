@@ -10,6 +10,8 @@ namespace UserRegistration
             user.verifyfirstName();
             user.verifylastName();
             Console.WriteLine("Name- " + user.FirstName + user.LastName);
+            user.verifyemail();
+            Console.WriteLine("Email Address-" + user.Email);
         }
     }
 }
