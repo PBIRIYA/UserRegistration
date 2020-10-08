@@ -106,14 +106,14 @@ namespace UserRegistration
         }
         private bool verifypassword4(string password)
         {
-            Regex regex = new Regex("^.*?[#?!@$%^&-*_]+.*$");
+            Regex regex = new Regex("^.*[#?!@$%^&-*_]+.*$");
             return (regex.IsMatch(password));
         }
         public void verifypassword()
         {
             Console.Write("Enter Password-");
             string password = Console.ReadLine();
-            if (verifypassword1(password) && verifypassword2(password) && verifypassword3(password))
+            if (verifypassword4(password))
             {
                 Password = password;
             }
@@ -122,8 +122,9 @@ namespace UserRegistration
                 Console.WriteLine("Invalid Password-");
                 Console.WriteLine("Password needs to have \n" +
                    "1. Minimum 8 characters\n" +
-                   "2. At least 1 upper case character\n" +
-                   "3. At least 1 numeric value");
+                   "2. At least one upper case character\n" +
+                   "3. At least one numeric value" +
+                   "4. At least one special character");
                 verifypassword();
             }
         }
