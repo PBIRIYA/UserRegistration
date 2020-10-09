@@ -91,29 +91,33 @@ namespace UserRegistration
         }
         private bool verifypassword1(string password)
         {
-            Regex regex = new Regex("^[A-Za-z0-9]{8,}$");
-            return (regex.IsMatch(password));
+            Regex regex = new Regex("^[A-Za-z0-9!@#$%&*_-]{8,}$");
+            bool result = regex.IsMatch(password);
+            return result;
         }
         private bool verifypassword2(string password)
         {
             Regex regex = new Regex("^.*[A-Z]+.*$");
-            return (regex.IsMatch(password));
+            bool result = regex.IsMatch(password);
+            return result;
         }
         private bool verifypassword3(string password)
         {
             Regex regex = new Regex("^.*[0-9]+.*$");
-            return (regex.IsMatch(password));
+            bool result = regex.IsMatch(password);
+            return result;
         }
         private bool verifypassword4(string password)
         {
-            Regex regex = new Regex("^.*[#?!@$%^&-*_]+.*$");
-            return (regex.IsMatch(password));
+            Regex regex = new Regex("^.*[!@#$%&*_-]+.*$");
+            bool result = regex.IsMatch(password);
+            return result;
         }
         public void verifypassword()
         {
             Console.Write("Enter Password-");
             string password = Console.ReadLine();
-            if (verifypassword4(password))
+            if (verifypassword1(password) && verifypassword2(password) && verifypassword3(password) && verifypassword4(password))
             {
                 Password = password;
             }
@@ -128,7 +132,44 @@ namespace UserRegistration
                 verifypassword();
             }
         }
+        public void VerifiedEmailList()
+        {
+            List<string> emailList = new List<string>();
+            emailList.Add("abc@yahoo.com");
+            emailList.Add("abc-100@yahoo.com");
+            emailList.Add("abc.100@yahoo.com");
+            emailList.Add("abc111@yahoo.com");
+            emailList.Add("abc-100@abc.net");
+            emailList.Add("abc.100@abc.com.au");
+            emailList.Add("abc@1.com");
+            emailList.Add("abc@gmail.com.com");
+            emailList.Add("abc+100@gmail.com");
+
+            emailList.Add("abc");
+            emailList.Add("abc@.com.my");
+            emailList.Add("abc123@gmail.a");
+            emailList.Add("abc123@.com");
+            emailList.Add("abc123@.com.com");
+            emailList.Add(".abc@abc.com");
+            emailList.Add("abc()*@gmail.com");
+            emailList.Add("abc@%*.com");
+            emailList.Add("abc..2002@gmail.com");
+            emailList.Add("abc.@gmail.com");
+            emailList.Add("abc@abc@gmail.com");
+            emailList.Add("abc@gmail.com.1a");
+            emailList.Add("abc@gmail.com.aa.au");
+            {
+                Regex regex = new Regex("^[a-z0-9-+]+([.][a-z0-9+-]+)?@[a-z0-9]+[.][a-z]{2,}([.][a-z]{2,})?$");
+
+                foreach (string email in emailList)
+                {
+                    if (regex.IsMatch(email))
+                        Console.WriteLine(email + "- VALID");
+                    else
+                        Console.WriteLine(email + "- INVALID");
+                }
+            }
+        }
     }
 }
-
 
