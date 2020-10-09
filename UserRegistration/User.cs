@@ -92,29 +92,33 @@ namespace UserRegistration
         }
         private bool verifypassword1(string password)
         {
-            Regex regex = new Regex("^[A-Za-z0-9]{8,}$");
-            return (regex.IsMatch(password));
+            Regex regex = new Regex("^[A-Za-z0-9!@#$%&*_-]{8,}$");
+            bool result = regex.IsMatch(password);
+            return result;
         }
         private bool verifypassword2(string password)
         {
             Regex regex = new Regex("^.*[A-Z]+.*$");
-            return (regex.IsMatch(password));
+            bool result = regex.IsMatch(password);
+            return result;
         }
         private bool verifypassword3(string password)
         {
             Regex regex = new Regex("^.*[0-9]+.*$");
-            return (regex.IsMatch(password));
+            bool result = regex.IsMatch(password);
+            return result;
         }
         private bool verifypassword4(string password)
         {
-            Regex regex = new Regex("^.*[#?!@$%^&-*_]+.*$");
-            return (regex.IsMatch(password));
+            Regex regex = new Regex("^.*[!@#$%&*_-]+.*$");
+            bool result = regex.IsMatch(password);
+            return result;
         }
         public void verifypassword()
         {
             Console.Write("Enter Password-");
             string password = Console.ReadLine();
-            if (verifypassword4(password))
+            if (verifypassword1(password) && verifypassword2(password) && verifypassword3(password) && verifypassword4(password))
             {
                 Password = password;
             }
@@ -130,7 +134,11 @@ namespace UserRegistration
             }
         }
         public void VerifiedEmailList()
+<<<<<<< HEAD
         { 
+=======
+        {
+>>>>>>> UC8_AddPasswordRule4
             List<string> emailList = new List<string>();
             emailList.Add("abc@yahoo.com");
             emailList.Add("abc-100@yahoo.com");
@@ -157,6 +165,7 @@ namespace UserRegistration
             emailList.Add("abc@gmail.com.aa.au");
             {
                 Regex regex = new Regex("^[a-z0-9-+]+([.][a-z0-9+-]+)?@[a-z0-9]+[.][a-z]{2,}([.][a-z]{2,})?$");
+<<<<<<< HEAD
             }
             foreach (string email in emailList)
             {
@@ -164,9 +173,18 @@ namespace UserRegistration
                     Console.WriteLine(email + "- Valid Email");
                 else
                     Console.WriteLine(email + "- Invalid Email");
+=======
+
+                foreach (string email in emailList)
+                {
+                    if (regex.IsMatch(email))
+                        Console.WriteLine(email + "- VALID");
+                    else
+                        Console.WriteLine(email + "- INVALID");
+                }
+>>>>>>> UC8_AddPasswordRule4
             }
         }
     }
 }
-
 
