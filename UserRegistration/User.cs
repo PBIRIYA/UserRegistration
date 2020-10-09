@@ -134,11 +134,7 @@ namespace UserRegistration
             }
         }
         public void VerifiedEmailList()
-<<<<<<< HEAD
         { 
-=======
-        {
->>>>>>> UC8_AddPasswordRule4
             List<string> emailList = new List<string>();
             emailList.Add("abc@yahoo.com");
             emailList.Add("abc-100@yahoo.com");
@@ -165,7 +161,6 @@ namespace UserRegistration
             emailList.Add("abc@gmail.com.aa.au");
             {
                 Regex regex = new Regex("^[a-z0-9-+]+([.][a-z0-9+-]+)?@[a-z0-9]+[.][a-z]{2,}([.][a-z]{2,})?$");
-<<<<<<< HEAD
             }
             foreach (string email in emailList)
             {
@@ -173,8 +168,6 @@ namespace UserRegistration
                     Console.WriteLine(email + "- Valid Email");
                 else
                     Console.WriteLine(email + "- Invalid Email");
-=======
-
                 foreach (string email in emailList)
                 {
                     if (regex.IsMatch(email))
@@ -182,7 +175,6 @@ namespace UserRegistration
                     else
                         Console.WriteLine(email + "- INVALID");
                 }
->>>>>>> UC8_AddPasswordRule4
             }
         }
     }
